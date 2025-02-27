@@ -1,0 +1,7 @@
+# ~/.ssh/config
+# This file configures the SSH client to use the private key ~/.ssh/school
+# and disables password authentication.
+
+Host 8.8.8.8 
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
