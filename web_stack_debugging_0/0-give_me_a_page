@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-# Turns on apache so to be able to return a
-# page containing Hello Holberton
+# This script fixes the web server issue in the Docker container
+
+# Start Apache if not running
 service apache2 start
+
+# Ensure Apache runs on boot
+update-rc.d apache2 enable
+
+# Create the required page
+echo "Hello Holberton" > /var/www/html/index.html
+
+# Restart Apache to apply changes
+service apache2 restart
+
 
