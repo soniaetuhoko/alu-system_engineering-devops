@@ -1,0 +1,15 @@
+#!/bin/bash
+# Update package lists
+apt-get update
+
+# Install Apache if not installed
+apt-get install -y apache2
+
+# Start Apache service
+service apache2 start
+
+# Ensure Apache starts on boot
+systemctl enable apache2
+
+# Create a simple webpage
+echo "Hello Holberton" > /var/www/html/index.html
