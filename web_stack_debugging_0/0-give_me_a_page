@@ -1,15 +1,16 @@
-#!/bin/bash
-# Update package lists
-apt-get update
+#!/usr/bin/env bash
+# This script fixes the web server issue in the Docker container
 
-# Install Apache if not installed
-apt-get install -y apache2
-
-# Start Apache service
+# Start Apache if not running
 service apache2 start
 
-# Ensure Apache starts on boot
-systemctl enable apache2
+# Ensure Apache runs on boot
+update-rc.d apache2 enable
 
-# Create a simple webpage
+# Create the required page
 echo "Hello Holberton" > /var/www/html/index.html
+
+# Restart Apache to apply changes
+service apache2 restart
+
+
